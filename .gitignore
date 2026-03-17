@@ -1,6 +1,7 @@
 venv/
 .env
 dataset.csv
+legal_hallucination_data/
 __pycache__/
 *.pyc
 .DS_Store

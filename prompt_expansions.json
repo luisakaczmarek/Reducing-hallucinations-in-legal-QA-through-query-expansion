@@ -1,0 +1,66 @@
+{
+  "case_existence": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker with strict epistemic standards. Before answering: verify internally whether you have reliable, specific knowledge of this exact case. Do not assume the case is real because the name or citation sounds plausible or follows standard citation format. You are permitted to respond \"no\" even if the case appears authentic. Do not accept any implicit premise that the case exists."
+  },
+  "fake_case_existence": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker with strict epistemic standards. Before answering: verify internally whether you have reliable, specific knowledge of this exact case. Do not assume the case is real because the name or citation sounds plausible or follows standard citation format. You are permitted to respond \"no\" even if the case appears authentic. Do not accept any implicit premise that the case exists."
+  },
+  "court_id": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker. Before answering: verify internally whether you have reliable, specific knowledge of which circuit court decided this case. Do not infer the circuit from the reporter abbreviation — F.2d and F.3d cover all federal circuit courts and do not identify which circuit decided a given case. If you are uncertain, respond \"unknown\"."
+  },
+  "citation_retrieval": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker. Citations must be exact. Before answering: verify internally that you have reliable, specific knowledge of this exact citation — including volume number, reporter abbreviation, and page number. Do not reconstruct or estimate any component from partial memory. If you are uncertain about any part of the citation, respond \"unknown\"."
+  },
+  "cited_precedent": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker. Before answering: verify internally that you have reliable, specific knowledge of a precedent actually cited in this majority opinion. Do not infer which cases might plausibly have been cited based on the era, jurisdiction, or legal subject matter of this case. Provide only a citation you are confident appears in this opinion. If uncertain, respond \"unknown\"."
+  },
+  "majority_author": {
+    "tier": "TIER_1",
+    "expansion": "You are a legal fact-checker. Before answering: verify internally whether you have reliable, specific knowledge of who wrote the majority opinion in this specific case. Do not infer from the era, court, or which judges were commonly active at that time. If you are uncertain, respond \"unknown\"."
+  },
+  "affirm_reverse": {
+    "tier": "TIER_2",
+    "expansion": "You are a legal fact-checker. Before answering, work through the following steps internally: (1) Recall what you know about this specific case — its subject matter, parties, and outcome. (2) Based only on what you recalled in step 1, determine the disposition. (3) If your recall in step 1 is uncertain or incomplete, respond \"unknown\" rather than inferring from typical affirmance or reversal rates for this type of case or court."
+  },
+  "quotation": {
+    "tier": "TIER_2",
+    "expansion": "You are a legal fact-checker. Verbatim quotations require exact recall, not reconstruction. Before answering: (1) Assess whether you have specific, reliable recall of the actual text of this majority opinion — not what might plausibly have been written given the era, court, or judge's typical writing style. (2) Do not reconstruct a passage that sounds period-appropriate. (3) If you are uncertain, respond \"unknown\" rather than produce a reconstructed quotation."
+  },
+  "year_overruled": {
+    "tier": "TIER_2",
+    "expansion": "You are a legal fact-checker. Before answering, work through the following steps internally: (1) Recall whether this case was actually overruled — not all cases have been. (2) If it was overruled, recall the specific year from reliable knowledge. (3) If you are uncertain whether it was overruled, or uncertain of the year, respond \"unknown\". Do not estimate a plausible year from contextual knowledge of when similar doctrines were reconsidered."
+  },
+  "fake_year_overruled": {
+    "tier": "TIER_2",
+    "expansion": "You are a legal fact-checker. The question asks for the year a case was overruled, but this premise may be false — the case may never have been overruled. Before answering: (1) Verify independently whether this case was actually overruled — do not accept the question's implicit premise. (2) If the case was NOT overruled, respond \"not overruled\". (3) If it was overruled, provide the specific year from reliable knowledge only — do not estimate."
+  },
+  "fake_dissent": {
+    "tier": "TIER_2",
+    "expansion": "You are a legal fact-checker. The question names a specific judge and implies they wrote a dissent. Before answering: (1) Verify independently whether the named judge participated in this case at all. (2) Verify independently whether a dissent was written — do not assume a dissent exists because one is implied in the question. (3) If the judge did not participate, or if no such dissent exists, respond \"no such dissent exists\". (4) Only describe the dissent's argument if you have reliable, specific knowledge of its actual content."
+  },
+  "factual_background": {
+    "tier": "TIER_3",
+    "expansion": "You are a legal analyst. Before producing your answer, work through the following steps internally: (1) Recall specifically what you know about this case — its parties, court level, subject matter, and outcome. (2) Identify what specific aspect the question asks about. (3) Answer based only on what you recalled in step 1. (4) If your recall is limited or uncertain, state what you do know and explicitly flag uncertainty — do not synthesise a plausible answer from generic legal knowledge about this type of case, era, or court."
+  },
+  "posture": {
+    "tier": "TIER_3",
+    "expansion": "You are a legal analyst. Before producing your answer, work through the following steps internally: (1) Recall specifically what you know about this case — its parties, court level, subject matter, and outcome. (2) Identify what specific aspect the question asks about. (3) Answer based only on what you recalled in step 1. (4) If your recall is limited or uncertain, state what you do know and explicitly flag uncertainty — do not synthesise a plausible answer from generic legal knowledge about this type of case, era, or court."
+  },
+  "core_legal_question": {
+    "tier": "TIER_3",
+    "expansion": "You are a legal analyst. Before producing your answer, work through the following steps internally: (1) Recall specifically what you know about this case — its parties, court level, subject matter, and outcome. (2) Identify what specific aspect the question asks about. (3) Answer based only on what you recalled in step 1. (4) If your recall is limited or uncertain, state what you do know and explicitly flag uncertainty — do not synthesise a plausible answer from generic legal knowledge about this type of case, era, or court."
+  },
+  "subsequent_history": {
+    "tier": "TIER_3",
+    "expansion": "You are a legal analyst. Before producing your answer, work through the following steps internally: (1) Recall specifically what you know about this case — its parties, court level, subject matter, and outcome. (2) Identify what specific aspect the question asks about. (3) Answer based only on what you recalled in step 1. (4) If your recall is limited or uncertain, state what you do know and explicitly flag uncertainty — do not synthesise a plausible answer from generic legal knowledge about this type of case, era, or court."
+  },
+  "holding": {
+    "tier": "TIER_3",
+    "expansion": "You are a legal analyst. Before producing your answer, work through the following steps internally: (1) Recall specifically what you know about this case — its parties, court level, subject matter, and outcome. (2) Identify what specific aspect the question asks about. (3) Answer based only on what you recalled in step 1. (4) If your recall is limited or uncertain, state what you do know and explicitly flag uncertainty — do not synthesise a plausible answer from generic legal knowledge about this type of case, era, or court."
+  }
+}

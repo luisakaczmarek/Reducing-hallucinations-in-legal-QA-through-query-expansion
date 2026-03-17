@@ -70,6 +70,9 @@ REFUSAL_PHRASES = [
     "cannot provide", "not able to provide", "no information available",
     "i'm not able", "i apologize", "i have no access",
     "cannot access", "i lack", "outside my",
+    # "unknown" is explicitly permitted as abstention in structured/premise expansions;
+    # treat it as non-hallucination (same as refusal under Dahl's framework)
+    "unknown",
 ]
 
 # Phrases that indicate premise rejection for fake_* tasks
@@ -162,6 +165,9 @@ def _score_case_existence(response: str, true_answer: str) -> int:
     said_yes = any(p in r for p in ["yes", "it is a real", "real case", "this is a real"])
     said_no  = any(p in r for p in ["no,", "no.", "not a real", "does not exist",
                                     "fake", "not exist", "no real"])
+    # Catch bare "no" with no trailing punctuation — common for "say yes or no only" prompts
+    if not said_no and re.match(r"^\s*no\s*$", r):
+        said_no = True
     if expected_yes and said_yes:
         return 100
     if not expected_yes and said_no:
@@ -269,6 +275,9 @@ SCORERS = {
 
 
 def score_record(record: dict) -> int:
+    # API call failures written by the run scripts — exclude from scoring
+    if record.get("response") == "ERROR":
+        return REFUSAL_SCORE
     task = record["task"]
     scorer = SCORERS.get(task)
     if scorer is None:
@@ -419,7 +428,6 @@ def main():
             continue
         print(f"  Scoring {path.name} ...", end=" ", flush=True)
         records = load_and_score(path)
-        # Ensure condition is set (baseline files don't have the field)
         for r in records:
             r.setdefault("condition", condition)
         all_records.extend(records)
