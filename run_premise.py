@@ -43,7 +43,7 @@ TASKS = [
 MODEL_CONFIGS = {
     "groq":      {"model_id": "llama-3.3-70b-versatile", "sleep_s": 2.1},
     "gpt4omini": {"model_id": "gpt-4o-mini",             "sleep_s": 0.0},
-    # "gemini":    {"model_id": "gemini-2.5-flash",         "sleep_s": 4.1},
+    "gemini":    {"model_id": "gemini-2.5-flash",         "sleep_s": 4.1},
 }
 
 # ── Data loading & sampling ────────────────────────────────────────────────
